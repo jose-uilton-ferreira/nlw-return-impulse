@@ -27,11 +27,11 @@ export function FeedbackContentStep({
 
     setIsSendingFeedback(true);
 
-    await api.post('/feedbacks', {
-      type: feedbackType,
-      comment,
-      screenshot
-    });
+    // await api.post('/feedbacks', {
+    //   type: feedbackType,
+    //   comment,
+    //   screenshot
+    // });
 
     setIsSendingFeedback(false);
 
@@ -43,12 +43,13 @@ export function FeedbackContentStep({
       <header className="text-xl leading-6">
         <div
           onClick={onFeedbackRestartRequested}
-          className="absolute top-5 left-5 text-zinc-400 hover:text-zinc-100 cursor-pointer"
+          className="absolute top-5 left-5 text-zinc-500 hover:text-zinc-800 
+                     dark:text-zinc-400 dark:hover:text-zinc-100 cursor-pointer"
         >
           <ArrowLeft weight="bold" className="w-6 h-6" />
         </div>
         
-        <span className=" flex items-center gap-2">
+        <span className="flex items-center gap-2 text-zinc-800 dark:text-zinc-100">
           <img className="w-6 h-6" src={feedbackTypeInfo.img.src} alt={feedbackTypeInfo.img.alt} />
 
           {feedbackTypeInfo.title}
@@ -63,9 +64,10 @@ export function FeedbackContentStep({
       >
         <textarea
           className="min-w-[304px] min-h-[112px] w-full text-sm bg-transparent 
-                   placeholder-zinc-400 text-zinc-100 border-zinc-600 rounded-md 
-                   focus:border-brand-500 focus:ring-brand-500 focus:ring-1 resize-none
-                     scrollbar scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin"
+                   placeholder-zinc-500 text-zinc-800 border-zinc-300 dark:placeholder-zinc-400 
+                   dark:text-zinc-100 dark:border-zinc-600 rounded-md focus:border-brand-500 
+                   focus:ring-brand-500 focus:ring-1 resize-none scrollbar scrollbar-thumb-zinc-700 
+                   scrollbar-track-transparent scrollbar-thin"
           placeholder="Conte com detalhes o que está acontecendo..."
           onChange={event => setComment(event.target.value)}
           value={comment}
@@ -80,10 +82,11 @@ export function FeedbackContentStep({
 
           <button
             type="submit"
-            className="flex justify-center items-center text-sm bg-brand-500 rounded-md flex-1 p-2
-                       hover:bg-brand-300 transition-colors focus:outline-none focus:ring-2
-                       focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500
-                       disabled:opacity-50 disabled:hover:bg-brand-500"
+            className="flex justify-center items-center text-sm bg-brand-500 text-white 
+                       rounded-md flex-1 p-2 hover:bg-brand-300 transition-colors focus:outline-none
+                       focus:ring-2 focus:ring-offset-2 focus:ring-offset-white 
+                       dark:focus:ring-offset-zinc-900 focus:ring-brand-500 disabled:opacity-50 
+                       disabled:hover:bg-brand-500"
             disabled={comment.length === 0 || isSendingFeedback}
           >
             { isSendingFeedback ? <Loading /> : 'Enviar feedback' } 

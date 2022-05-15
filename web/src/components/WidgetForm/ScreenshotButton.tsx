@@ -42,9 +42,11 @@ export function ScreenshotButton({ onScreenshotTook, screenshot, disabled }: Scr
   return (
     <button
       type="button"
-      className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-md transition-colors 
-                   focus:outline-none focus:ring-offset-2 focus:ring-offset-zinc-900
-                   focus:ring-2 focus:ring-brand-500 disabled:opacity-50 disabled:hover:bg-zinc-800"
+      className="bg-zinc-100 hover:bg-zinc-200 text-zinc-800 dark:text-zinc-100 
+                   dark:bg-zinc-800 dark:hover:bg-zinc-700 p-2 rounded-md transition-colors 
+                   focus:outline-none focus:ring-offset-2 focus:ring-offset-white
+                   dark:focus:ring-offset-zinc-900 focus:ring-2 focus:ring-brand-500 
+                   disabled:opacity-50"
       onClick={handleTakeScreenshot}
       disabled={disabled}
     >

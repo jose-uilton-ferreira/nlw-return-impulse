@@ -1,5 +1,10 @@
 import { Widget } from './components/Widget';
+import { ThemeContextProvider } from './hooks/useTheme';
 
 export function App() {
-  return <Widget />
+  return (
+    <ThemeContextProvider>
+      <Widget />   
+    </ThemeContextProvider>
+  )
 }

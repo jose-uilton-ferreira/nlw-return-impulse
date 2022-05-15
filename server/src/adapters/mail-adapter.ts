@@ -1,6 +1,8 @@
 export interface MailAdapterData {
   subject: string;
-  body: string;
+  type: string;
+  comment: string;
+  screenshot?: string;
 }
 
 export interface MailAdapter {

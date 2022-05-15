@@ -7,6 +7,7 @@ import thoughtImg from '../../assets/thought.svg';
 import { FeedbackTypeStep } from "./Steps/FeedbackTypeStep";
 import { FeedbackContentStep } from "./Steps/FeedbackContentStep";
 import { FeedbackSuccessStep } from './Steps/FeedbackSuccessStep';
+import { ThemeToggle } from "../ThemeToggle";
 
 export const feedbackTypes = {
   BUG: {
@@ -44,7 +45,11 @@ export function WidgetForm() {
   }
 
   return (
-    <div className="relative bg-zinc-900 p-4 mb-4 rounded-2xl flex flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto">
+    <div
+      className="relative bg-white text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 p-4 
+                 mb-4 rounded-2xl flex flex-col items-center shadow-lg w-[calc(100vw-2rem)]
+                 md:w-auto"
+    >
       { feedbackSent ? (
         <FeedbackSuccessStep onFeedbackRestartRequested={handleRestartFeedback} />
       ) : (
@@ -61,9 +66,11 @@ export function WidgetForm() {
         </>
       ) }
 
-      <footer className="text-xs text-neutral-400">
+      <footer className="text-xs text-zinc-500 dark:text-zinc-400 mt-4">
         Feito com ♥ pela <a href="http://rocketseat.com.br" className="underline underline-offset-2">Rocketseat</a>
       </footer>
+
+      <ThemeToggle />
     </div>
   )
 }
